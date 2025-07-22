@@ -80,3 +80,26 @@ document.addEventListener("DOMContentLoaded", function () {
         prevEl: ".swiper-button-prev",
       },
     });
+
+    var video = document.querySelector(".video");
+    var circle = document.querySelector(".circle");
+
+    video.addEventListener("mouseenter", function () {
+      gsap.to(circle,{
+        scale:1,
+        opacity:1
+      })
+    });
+    video.addEventListener("mouseleave", function () {
+      gsap.to(circle,{
+        scale:0,
+        opacity:0
+      })
+    });
+
+    video.addEventListener("mousemove",function(dets){
+      gsap.to(circle,{
+        left:dets.x - 30,
+        top:dets.y-30
+      })
+    })

@@ -90,30 +90,30 @@
         transition-all duration-300 top-[50px]
         hidden sm:flex sm:pl-[30px] sm:pr-[30px] " id="nav-links">
       <li>
-        <a href="#" class="group text-white transition    duration-300">Home<span
+        <a href="#" class="group text-white transition text-2xl duration-300">Home<span
             class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
         </a><span class=""></span>
       </li>
       <li>
-        <a href="#about" class="group text-white transition duration-300">About
+        <a href="#about" class="group text-white transition text-2xl duration-300">About
           <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#services" class="group text-white transition duration-300">Services
+        <a href="#services" class="group text-white transition text-2xl duration-300">Services
           <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#" class="group text-white transition duration-300">Trainers
+        <a href="#" class="group text-white transition text-2xl duration-300">Trainers
           <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#" class="group text-white transition duration-300">Contact
+        <a href="#" class="group text-white text-2xl transition duration-300">Contact
           <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
         </a>
         <span class=""></span>
@@ -137,8 +137,9 @@
   <!--About-->
   <div class="h-[100vh] flex sm:flex-row flex-col items-center justify-center sm:gap-[30px] gap-0.5 p-[30px] bg-black"
     id="about">
-    <div class="sm:basis-4xl h-[100vh] sm:flex items-center hidden justify-center">
-      <video src="/src/images/video.mp4" autoplay muted loop class="am:m-[50px] rounded-2xl"></video>
+    <div class="sm:basis-4xl h-[100vh] sm:flex items-center hidden justify-center relative">
+      <div class="circle h-[70px] w-[70px] flex items-center justify-center font-semibold rounded-[50%] text-shadow-gray-800 bg-amber-50 absolute opacity-0 scale-0">PLAY</div>
+      <video src="/src/images/video.mp4" autoplay muted loop class="video sm:m-[50px] rounded-2xl" id="video"></video>
     </div>
     <div class="sm:basis-3xl h-[100vh] flex items-center justify-center flex-col">
       <h1 class="sm:text-6xl text-4xl mb-9 mt-8 font-oswald text-white">About Us
@@ -159,17 +160,17 @@
 
   <div
     class="h-[100vh] flex sm:flex-row flex-col items-center justify-center sm:gap-[30px] gap-0.5 p-[30px] bg-gray-950">
-    <div class="basis-[50%] h-[100%] w-[50%] flex items-center justify-center flex-col">
+    <div class=" h-[100%] w-[30%] flex items-center justify-center flex-col">
       <h1 class="text-2xl text-amber-50">Services </h1>
       <h1 class="text-2xl text-amber-50">We Provide</h1>
     </div>
 
-    <div class="swiper mySwiper w-[50%] h-[100%] ">
-      <div class="swiper-wrapper">
+    <div class="swiper mySwiper w-[70%] h-[100%]">
+      <div class="swiper-wrapper w-[100%] h-[100%]">
         <div class="swiper-slide ">
           <img src="./images/cardio.png" class="contain-content">
         </div>
-        <div class="swiper-slide flex items-center justify-center"><img src="./gym_website/image2.jpg" class="contain-content" h-[100%] w-[100%]></div>
+        <div class="swiper-slide flex items-center justify-center rounded-2xl"><img src="./gym_website/image2.jpg" class="object-cover h-[100%] w-[100%] rounded-2xl"></div>
         <div class="swiper-slide">Slide 3</div>
         <div class="swiper-slide">Slide 4</div>
         <div class="swiper-slide">Slide 5</div>
@@ -193,6 +194,7 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="/src/script.js"></script>
 
 </html>
