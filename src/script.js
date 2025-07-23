@@ -30,7 +30,7 @@ document.addEventListener('click', function (event) {
 document.addEventListener("DOMContentLoaded", function () {
   var typed = new Typed("#auto-type",{
     strings : [
-    "Fat Lose",
+    "Fat Loss",
     "Weightlifting",
     "Running",
     "Physical Fitness",
