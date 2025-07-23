@@ -14,17 +14,17 @@
     --color-amber-50: oklch(98.7% 0.022 95.277);
     --color-amber-700: oklch(55.5% 0.163 48.998);
     --color-slate-300: oklch(86.9% 0.022 252.894);
-    --color-slate-400: oklch(70.4% 0.04 256.788);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
-    --color-gray-950: oklch(13% 0.028 261.692);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
@@ -40,12 +40,9 @@
     --font-weight-light: 300;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --blur-sm: 8px;
-    --blur-md: 12px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -254,11 +251,17 @@
   .mb-9 {
     margin-bottom: calc(var(--spacing) * 9);
   }
+  .mb-\[0px\] {
+    margin-bottom: 0px;
+  }
   .mb-\[10px\] {
     margin-bottom: 10px;
   }
   .mb-\[20px\] {
     margin-bottom: 20px;
+  }
+  .mb-\[40px\] {
+    margin-bottom: 40px;
   }
   .mb-\[80px\] {
     margin-bottom: 80px;
@@ -290,9 +293,6 @@
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
   }
-  .h-\[30\%\] {
-    height: 30%;
-  }
   .h-\[50px\] {
     height: 50px;
   }
@@ -307,9 +307,6 @@
   }
   .w-0 {
     width: calc(var(--spacing) * 0);
-  }
-  .w-\[30\%\] {
-    width: 30%;
   }
   .w-\[70px\] {
     width: 70px;
@@ -380,6 +377,14 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
+  .rounded-t-2xl {
+    border-top-left-radius: var(--radius-2xl);
+    border-top-right-radius: var(--radius-2xl);
+  }
+  .rounded-t-xl {
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -398,9 +403,6 @@
   }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
-  }
-  .bg-orange-100 {
-    background-color: var(--color-orange-100);
   }
   .bg-orange-700 {
     background-color: var(--color-orange-700);
@@ -435,6 +437,12 @@
   .p-\[20px\] {
     padding: 20px;
   }
+  .p-\[50px\] {
+    padding: 50px;
+  }
+  .p-\[60px\] {
+    padding: 60px;
+  }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
@@ -444,11 +452,20 @@
   .pr-\[30px\] {
     padding-right: 30px;
   }
+  .pb-\[10px\] {
+    padding-bottom: 10px;
+  }
   .pl-\[10px\] {
     padding-left: 10px;
   }
+  .text-center {
+    text-align: center;
+  }
   .text-justify {
     text-align: justify;
+  }
+  .align-middle {
+    vertical-align: middle;
   }
   .font-oswald {
     font-family: var(--font-oswald);
@@ -467,6 +484,14 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .text-\[20px\] {
     font-size: 20px;
@@ -558,13 +583,6 @@
       }
     }
   }
-  .hover\:text-orange-700 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-orange-700);
-      }
-    }
-  }
   .sm\:static {
     @media (width >= 40rem) {
       position: static;
@@ -583,6 +601,11 @@
   .sm\:mr-\[120px\] {
     @media (width >= 40rem) {
       margin-right: 120px;
+    }
+  }
+  .sm\:mb-\[80px\] {
+    @media (width >= 40rem) {
+      margin-bottom: 80px;
     }
   }
   .sm\:flex {
@@ -659,6 +682,12 @@
     @media (width >= 40rem) {
       font-size: var(--text-2xl);
       line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
+  .sm\:text-3xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
   .sm\:text-4xl {
