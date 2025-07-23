@@ -1,0 +1,34 @@
+{
+  "card": [
+    {
+      "image": "./gym_website/image1.jpg",
+      "heading": " Bench Press Training",
+      "description":"Master the classic Barbell Bench Press with proper form and trainer support. Ideal for building a powerful chest and upper body.",
+      "benefits":"Builds chest, triceps, and shoulders Increases upper-body strength Trainer-assisted for safety"
+    },
+    {
+      "image": "./gym_website/image2.jpg",
+      "heading": "Seated Cable Row Workout",
+      "description":"Strengthen your back with guided Cable Row sessions using commercial-grade machines. Perfect for posture correction and pulling strength.",
+      "benefits":"Improves upper & middle back strength Supports better posture Targets lats and rhomboids"
+    },
+    {
+      "image": "./gym_website/image3.jpg",
+      "heading": "Battle Rope Conditioning",
+      "description":"Burn calories and build stamina with High-Intensity Battle Rope training. A full-body workout for explosive power.",
+      "benefits":"High-intensity fat burner Builds arms, shoulders, and core Great for cardio and endurance"
+    },
+    {
+      "image": "./gym_website/image4.jpg",
+      "heading": " Core & Abs Training",
+      "description":"Engage your core with traditional and dynamic ab workouts, including sit-ups, crunches, and circuit-based core routines.",
+      "benefits":"Builds strong abdominal muscles Improves balance and stability Increases overall core strength"
+    },
+    {
+      "image": "./gym_website/image5.jpg",
+      "heading": " Deadlift Strength Training",
+      "description":"Learn and perfect the Deadlift under expert supervision. A compound move that trains your whole posterior chain and boosts strength.",
+      "benefits":"Builds total body power Targets glutes, hamstrings & back Boosts functional strength"
+    }
+  ]
+}

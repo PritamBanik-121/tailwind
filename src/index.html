@@ -67,9 +67,46 @@
       background: #ffffff;
       opacity: 0.7;
     }
+
     .swiper-pagination-bullet-active {
       background: #000000;
       opacity: 1;
+    }
+
+    .serv-cont img {
+      box-shadow: 0 8px 24px rgba(246, 74, 0, 0.088);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .serv-cont img:hover {
+      box-shadow: 0 8px 24px rgba(95, 1, 1, 0.896);
+      transform: scale(1.05);
+    }
+
+    .headingservice {
+      text-transform: uppercase;
+      background-image: linear-gradient(269deg, #FF0202FF, #791010FF,rgb(169, 7, 7),#FF0202FF, #791010FF,#000409FF);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300% 300%;
+      animation: anime 8s ease-in-out infinite;
+    }
+
+    @keyframes anime {
+      0%{
+        background-position: 0% 50%;
+      }
+      50%{
+        background-position: 100% 50%;
+      }
+      100%{
+        background-position: 0% 50%;
+      }
+    }
+
+    li > a:hover{
+      color: #FF0202FF;
     }
   </style>
 </head>
@@ -85,36 +122,36 @@
         <i class="fa thin fa-bars text-2xl text-amber-50" id="menu-btn"></i>
       </div>
     </div>
-    <ul class="bg-black p-[10px] mt-2.5 w-full flex items-center flex-col justify-center gap-[20px]  
+    <ul class="bg-black p-[10px] mt-2.5 w-full flex items-center flex-col justify-center gap-[20px] sm:gap-[30px]
         sm:flex-row sm:static absolute left-0 sm:top-0 sm:w-auto
         transition-all duration-300 top-[50px]
-        hidden sm:flex sm:pl-[30px] sm:pr-[30px] " id="nav-links">
+        hidden sm:flex sm:pl-[30px] sm:pr-[80px] " id="nav-links">
       <li>
-        <a href="#" class="group text-white transition text-2xl duration-300">Home<span
-            class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
+        <a href="#" class="group text-white transition text-[20px] duration-300">Home<span
+            class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a><span class=""></span>
       </li>
       <li>
-        <a href="#about" class="group text-white transition text-2xl duration-300">About
-          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
+        <a href="#about" class="group text-white transition text-[20px] duration-300">About
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#services" class="group text-white transition text-2xl duration-300">Services
-          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
+        <a href="#services" class="group text-white transition text-[20px] duration-300">Services
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#" class="group text-white transition text-2xl duration-300">Trainers
-          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
+        <a href="#" class="group text-white transition text-[20px] duration-300">Trainers
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a>
         <span class=""></span>
       </li>
       <li>
-        <a href="#" class="group text-white text-2xl transition duration-300">Contact
-          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-gray-100 "></span>
+        <a href="#" class="group text-white text-[20px] transition duration-300">Contact
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a>
         <span class=""></span>
       </li>
@@ -135,53 +172,60 @@
 
   </div>
   <!--About-->
-  <div class="h-[100vh] flex sm:flex-row flex-col items-center justify-center sm:gap-[30px] gap-0.5 p-[30px] bg-black"
+  <div
+    class="h-[100vh] flex sm:flex-row flex-col items-center justify-center sm:gap-[30px] gap-0.5 p-[10px] bg-black bg-[url('./images/bg-about2.png')] bg-contain bg-no-repeat bg-right"
     id="about">
     <div class="sm:basis-4xl h-[100vh] sm:flex items-center hidden justify-center relative">
-      <div class="circle h-[70px] w-[70px] flex items-center justify-center font-semibold rounded-[50%] text-shadow-gray-800 bg-amber-50 absolute opacity-0 scale-0">PLAY</div>
+      <div
+        class="circle h-[70px] w-[70px] flex items-center justify-center font-semibold rounded-[50%] text-shadow-gray-800 bg-amber-50 absolute opacity-0 scale-0">
+        PLAY</div>
       <video src="/src/images/video.mp4" autoplay muted loop class="video sm:m-[50px] rounded-2xl" id="video"></video>
     </div>
-    <div class="sm:basis-3xl h-[100vh] flex items-center justify-center flex-col">
+    <div
+      class="sm:basis-3xl p-[10px] px-5 flex items-center justify-center text-justify flex-col bg-[rgba(131,129,129,0.17)] rounded-2xl backdrop-blur-[5px]">
       <h1 class="sm:text-6xl text-4xl mb-9 mt-8 font-oswald text-white">About Us
         <span class="bg-amber-50 h-0.5 w-full block"></span>
       </h1>
-      <p class="sm:text-2xl text-[20px] font-light mb-[10px] text-slate-400 font-poppins ">
+      <p class="sm:text-2xl text-[20px] font-light mb-[10px] text-slate-300 font-poppins ">
         At CodeForge Gym, we believe strength is built—not just in the body, but in the mind and spirit. Our mission is
         to empower individuals to forge their best selves through world-class training, supportive community, and
         cutting-edge fitness programs.
       </p>
-      <p class="text-2xl font-light mb-[20px] text-slate-400 font-poppins hidden sm:flex">Our expert coaches,
+      <p class="text-2xl font-light mb-[20px] text-slate-300 font-poppins hidden sm:flex">Our expert coaches,
         state-of-the-art equipment, and results-driven programs are designed to challenge limits and ignite
         transformation..
       </p>
     </div>
   </div>
   <!--Services-->
-
-  <div
-    class="h-[100vh] flex sm:flex-row flex-col items-center justify-center sm:gap-[30px] gap-0.5 p-[30px] bg-gray-950">
-    <div class=" h-[100%] w-[30%] flex items-center justify-center flex-col">
-      <h1 class="text-2xl text-amber-50">Services </h1>
-      <h1 class="text-2xl text-amber-50">We Provide</h1>
-    </div>
-
-    <div class="swiper mySwiper w-[70%] h-[100%]">
-      <div class="swiper-wrapper w-[100%] h-[100%]">
-        <div class="swiper-slide ">
-          <img src="./images/cardio.png" class="contain-content">
-        </div>
-        <div class="swiper-slide flex items-center justify-center rounded-2xl"><img src="./gym_website/image2.jpg" class="object-cover h-[100%] w-[100%] rounded-2xl"></div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
+  <div class="services bg-black flex flex-col items-center justify-center" id="services">
+    <div class="headingservice sm:text-5xl text-3xl text-white font-oswald mb-[80px]">Services We Provide</div>
+    <div class="serv-cont flex gap-[50px] items-center justify-center p-[20px] flex-wrap sm:flex-row flex-col">
+      <div class="box sm:h-[30%] sm:w-[30%] w-[full] bg-amber-700 rounded-xl">
+        <a href="card.html?id=0">
+         <img src="./gym_website/image1.jpg" class="h-[100%] w-[100%] object-cover rounded-xl shadow-sm" alt="" >
+        </a>
       </div>
-      <div class="swiper-button-next text-amber-50"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination "></div>
+      <div class="boxsm:h-[30%] sm:w-[30%] w-[full] bg-amber-700 rounded-xl">
+      <a href="card.html?id=1">
+        <img src="./gym_website/image2.jpg" class="h-[100%] w-[100%] rounded-xl object-cover" alt="" srcset="">
+      </a>
+      </div>
+      <div class="boxsm:h-[30%] sm:w-[30%] w-[full] bg-amber-700 rounded-xl">
+       <a href="card.html?id=2">
+
+        <img src="./gym_website/image3.jpg" class="h-[100%] w-[100%] object-cover rounded-xl" alt=""></a>
+      </div>
+      <div class="box sm:h-[30%] sm:w-[30%] w-[full] bg-amber-700 rounded-xl">
+        <a href="card.html?id=3">
+
+        <img src="./gym_website/image4.jpg" class="h-[100%] w-[100%] object-cover rounded-xl" alt=""></a>
+      </div>
+      <div class="boxsm:h-[30%] sm:w-[30%] w-[full] bg-amber-700 rounded-xl">
+        <a href="card.html?id=4">
+
+        <img src="./gym_website/image5.jpg" class="h-[100%] w-[100%] object-cover rounded-xl" alt=""></a>
+      </div>
     </div>
   </div>
   <!--Marquee-->

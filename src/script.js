@@ -99,7 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     video.addEventListener("mousemove",function(dets){
       gsap.to(circle,{
-        left:dets.x - 30,
-        top:dets.y-30
+        left:dets.x,
+        top:dets.y+30
       })
     })
+
+    function goToNews(id) {
+  window.location.href = `card.html?id=${id}`;
+}

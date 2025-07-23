@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <div class="main">
+            <div id="heading"></div>
+        <div class="container">
+        <div id="image-container"></div>
+        <div id="text-container">
+            <div id="description"></div>
+            <div id="benefits"></div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+fetch('card.json')
+  .then(response => response.json())
+  .then(data => {
+    // Get card id from URL (e.g., card.html?id=0)
+    const params = new URLSearchParams(window.location.search);
+    const cardId = parseInt(params.get('id'), 10);
+    const card = data.card[cardId];
+
+    if (card) {
+      document.getElementById('image-container').innerHTML = `<img src="${card.image}" alt="${card.heading}" style="max-width:100%;">`;
+      document.getElementById('heading').textContent = card.heading;
+      document.getElementById('description').textContent = card.description;
+      // If benefits is an array, render as list
+      if (Array.isArray(card.benefits)) {
+        document.getElementById('benefits').innerHTML =
+          '<ul>' + card.benefits.map(b => `<li>${b}</li>`).join('') + '</ul>';
+      } else {
+        document.getElementById('benefits').textContent = card.benefits || '';
+      }
+    } else {
+      document.getElementById('text-container').innerHTML = '<p>Card not found.</p>';
+    }
+  })
+  .catch(err => {
+    document.getElementById('text-container').innerHTML = '<p>Error loading card data.</p>';
+    console.error(err);
+  });
+</script>
+</html>

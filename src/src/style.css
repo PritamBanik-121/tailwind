@@ -1,0 +1,105 @@
+ @import url('https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ .main{
+    height: 100vh;
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     background: linear-gradient(to right bottom, #000000, #ff0000);
+ }
+ .container {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+
+ #image-container {
+     flex-basis: 50%;
+     padding: 50px;
+ }
+
+ #image-container img {
+     height: 100%;
+     width: 100%;
+     border-radius: 10px;
+     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.33);
+     object-fit: contain;
+ }
+
+ #image-container img:hover {
+     transform: scale(1.05);
+     transition: transform 0.3s ease-in-out;
+ }
+
+ #text-container {
+     flex-basis: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     word-wrap: normal;
+     padding: 20px;
+ }
+
+ #heading {
+     font-family: 'Oswald', sans-serif;
+     font-size: 4.5em;
+     font-weight: 500;
+     text-transform: uppercase;
+     }
+
+ #description {
+     font-family: 'Asta Sans', sans-serif;
+     font-size: 2.2rem;
+     font-weight: 200;
+     text-align: justify;
+     margin-top: 20px;
+ }
+
+ #benefits {
+     font-family: 'Asta Sans', sans-serif;
+     font-size: 2.4rem;
+     font-weight: 400;
+     text-align: center;
+     margin-top: 20px;
+ }
+ @media screen and (max-width: 768px) {
+    .container{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+    }
+    #image-container {
+         display: none;
+     }
+
+     #text-container {
+         flex-basis: 100%;
+         padding: 10px;
+     }
+
+     #heading {
+         font-size: 2rem;
+         text-align: center;
+         word-wrap: normal;
+    }
+
+     #description {
+         font-size: 1.3rem;
+     }
+
+     #benefits {
+         font-size: 1.3rem;
+     }
+}
+    
+ 
