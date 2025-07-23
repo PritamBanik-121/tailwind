@@ -5,6 +5,10 @@
      margin: 0;
      padding: 0;
  }
+ *::selection{
+     background: #FF0202FF;
+      color: #000000;
+ }
 
  .main{
     height: 100vh;
