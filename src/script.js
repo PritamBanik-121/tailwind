@@ -126,7 +126,7 @@ class SymmetricCarousel {
     
     // Auto-play functionality
     this.autoPlayInterval = null;
-    this.autoPlayDelay = 3000; // 3 seconds
+    this.autoPlayDelay = 2000; // 3 seconds
     this.isAutoPlaying = true;
     this.pauseTimeout = null;
     
