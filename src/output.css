@@ -396,8 +396,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .bg-\[\#\#f1e9db\] {
+    background-color: ##f1e9db;
+  }
   .bg-\[\#eadecb\] {
     background-color: #eadecb;
+  }
+  .bg-\[\#f1e9db\] {
+    background-color: #f1e9db;
   }
   .bg-\[rgba\(131\,129\,129\,0\.17\)\] {
     background-color: rgba(131,129,129,0.17);
