@@ -122,6 +122,174 @@
       background-size: 300% 300%;
       animation: anime 8s ease-in-out infinite;
     }
+    /* Carousel Container Styling */
+.carousel-container {
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-wrapper {
+  position: relative;
+  perspective: 1200px;
+}
+
+.carousel-inner {
+  transform-style: preserve-3d;
+}
+
+/* Card Positioning and Animations */
+.carousel-card {
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+/* Center Card - Hero Position */
+.carousel-card.center {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1.15);
+  opacity: 1;
+}
+
+/* Left Side Cards */
+.carousel-card.left-1 {
+  z-index: 8;
+  transform: translate(calc(-50% - 200px), -50%) scale(0.85);
+  opacity: 0.9;
+}
+
+.carousel-card.left-2 {
+  z-index: 6;
+  transform: translate(calc(-50% - 350px), -50%) scale(0.7);
+  opacity: 0.7;
+}
+
+.carousel-card.left-3 {
+  z-index: 4;
+  transform: translate(calc(-50% - 450px), -50%) scale(0.6);
+  opacity: 0.5;
+}
+
+/* Right Side Cards */
+.carousel-card.right-1 {
+  z-index: 8;
+  transform: translate(calc(-50% + 200px), -50%) scale(0.85);
+  opacity: 0.9;
+}
+
+.carousel-card.right-2 {
+  z-index: 6;
+  transform: translate(calc(-50% + 350px), -50%) scale(0.7);
+  opacity: 0.7;
+}
+
+.carousel-card.right-3 {
+  z-index: 4;
+  transform: translate(calc(-50% + 450px), -50%) scale(0.6);
+  opacity: 0.5;
+}
+
+/* Hidden Cards */
+.carousel-card.hidden {
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+}
+
+/* Card Content Styling */
+.card-content {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.carousel-card.center .card-content {
+  box-shadow: 0 30px 60px rgba(234, 88, 12, 0.4);
+}
+
+/* Smooth transitions */
+.carousel-card {
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover effects only for center card */
+.carousel-card.center:hover {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+  .carousel-card.left-1,
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% - 160px), -50%) scale(0.8);
+  }
+  
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% + 160px), -50%) scale(0.8);
+  }
+  
+  .carousel-card.left-2,
+  .carousel-card.right-2 {
+    transform: translate(calc(-50% - 280px), -50%) scale(0.65);
+    transform: translate(calc(-50% + 280px), -50%) scale(0.65);
+  }
+  
+  .carousel-card.left-3,
+  .carousel-card.right-3 {
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: 420px;
+  }
+  
+  .carousel-card .card-content {
+    width: 280px;
+    height: 360px;
+  }
+  
+  .carousel-card.center {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .carousel-card.left-1,
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% - 140px), -50%) scale(0.75);
+    opacity: 0.6;
+  }
+  
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% + 140px), -50%) scale(0.75);
+  }
+  
+  .carousel-card.left-2,
+  .carousel-card.right-2,
+  .carousel-card.left-3,
+  .carousel-card.right-3 {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-card .card-content {
+    width: 260px;
+    height: 340px;
+  }
+  
+  .carousel-card.left-1,
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% - 120px), -50%) scale(0.7);
+  }
+  
+  .carousel-card.right-1 {
+    transform: translate(calc(-50% + 120px), -50%) scale(0.7);
+  }
+}
+  
   </style>
 </head>
 
@@ -158,7 +326,7 @@
         <span class=""></span>
       </li>
       <li>
-        <a href="#" class="group text-white transition text-[20px] duration-300">Trainers
+        <a href="#trainers" class="group text-white transition text-[20px] duration-300">Trainers
           <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a>
         <span class=""></span>
@@ -251,10 +419,347 @@
   </div>
 
   <!--Trainers Sections-->
-  <div class="trainers bg-black flex flex-col items-center justify-center" id="trainers">
+  <!-- <div class="trainers bg-black flex flex-col items-center justify-center" id="trainers">
 <div class="headingtrainer sm:text-6xl text-3xl text-white font-oswald sm:mb-[80px] mb-[0px]">Meet Our Trainers</div>
-
+<div class="trainer-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 bg-black w-full font-poppins">
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer1.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-shadow-gray-800">
+          <h4 class="text-4xl font-oswald font-bold">Marcus Steele</h4>
+          <p class="text-2xl">Strength Coach</p>
+          <div class="social-links flex gap-4 mt-4 justify-center">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer">
+            </i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-5">
+      <h3 class="text-2xl font-bold text-white mb-2 font-oswald">Marcus Steele</h3>
+      <p class="text-gray-300 mb-4">Certified Functional Strength Coach</p>
+      <div class="stats flex justify-between text-xl text-gray-200">
+        <span>7+ Years</span>
+        <span>200+ Clients</span>
+      </div>
+    </div>
   </div>
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer2.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-gray-500 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h4 class="text-xl font-bold">Liam Carter</h4>
+          <p>Powerlifting Specialist</p>
+          <div class="social-links flex gap-4 mt-4">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer"></i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Liam Carter</h3>
+      <p class="text-gray-300 mb-4">Bodybuilding & Powerlifting Specialist</p>
+      <div class="stats flex justify-between text-sm text-gray-400">
+        <span>6+ Years</span>
+        <span>0+ Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer3.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-gray-500 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h4 class="text-xl font-bold"> Alyssa Tan</h4>
+          <p> Toning Expert</p>
+          <div class="social-links flex gap-4 mt-4">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer"></i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2"> Alyssa Tan</h3>
+      <p class="text-gray-300 mb-4">Women’s Fitness & Toning Expert</p>
+      <div class="stats flex justify-between text-sm text-gray-400">
+        <span>5+ Years</span>
+        <span>200+ Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer4.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-gray-500 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h4 class="text-xl font-bold">Rachel Voss</h4>
+          <p>Fat Loss Coach</p>
+          <div class="social-links flex gap-4 mt-4">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer"></i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Rachel Voss</h3>
+      <p class="text-gray-300 mb-4"> Dumbbell Training & Fat Loss Coach</p>
+      <div class="stats flex justify-between text-sm text-gray-400">
+        <span>4+ Years</span>
+        <span>240+ Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer5.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-gray-500 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h4 class="text-xl font-bold">Nina Park</h4>
+          <p>Lifting & Technique Coach</p>
+          <div class="social-links flex gap-4 mt-4">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer"></i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Nina Park</h3>
+      <p class="text-gray-300 mb-4">Olympic Lifting & Technique Coach</p>
+      <div class="stats flex justify-between text-sm text-gray-400">
+        <span>6+ Years</span>
+        <span>400+ Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="trainer-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+    <div class="trainer-image-wrapper relative">
+      <img src="./gym_website/trainer6.jpg" class="w-full h-64 object-cover" alt="Trainer">
+      <div class="overlay absolute inset-0 bg-gray-500 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+        <div class="text-center text-white">
+          <h4 class="text-xl font-bold">David Knox</h4>
+          <p>Strength & Muscle Building Coach</p>
+          <div class="social-links flex gap-4 mt-4">
+            <i class="fab fa-instagram text-2xl hover:text-red-300 cursor-pointer"></i>
+            <i class="fab fa-facebook text-2xl hover:text-red-300 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">David Knox</h3>
+      <p class="text-gray-300 mb-4">Strength & Muscle Building Coach</p>
+      <div class="stats flex justify-between text-sm text-gray-400">
+        <span>5+ Years</span>
+        <span>280+ Clients</span>
+      </div>
+    </div>
+  </div>
+</div>
+  </div> -->
+<!--Trainers Carousel Section-->
+<div class="trainers bg-black flex flex-col items-center justify-center py-16" id="trainers">
+  <div class="headingtrainer sm:text-6xl text-3xl text-white font-oswald sm:mb-[40px] mb-[20px]">Meet Our Trainers</div>
+  
+  <!-- Carousel Container -->
+  <div class="carousel-container w-full max-w-6xl mx-auto px-4">
+    <div class="carousel-wrapper relative overflow-hidden h-[500px] flex items-center justify-center">
+      <div class="carousel-inner absolute inset-0 flex items-center justify-center" id="carouselInner">
+        
+        <!-- Trainer Card 1 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="0">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer1.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">Marcus Steele</h4>
+                  <p class="text-lg">Strength Coach</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">Marcus Steele</h3>
+              <p class="text-gray-300 mb-2 text-sm">Certified Functional Strength Coach</p>
+              <div class="stats flex justify-between text-sm">
+                <span>7+ Years</span>
+                <span>200+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer Card 2 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="1">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer2.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">Liam Carter</h4>
+                  <p class="text-lg">Powerlifting Specialist</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">Liam Carter</h3>
+              <p class="text-gray-300 mb-2 text-sm">Bodybuilding & Powerlifting Specialist</p>
+              <div class="stats flex justify-between text-sm">
+                <span>6+ Years</span>
+                <span>150+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer Card 3 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="2">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer3.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">Alyssa Tan</h4>
+                  <p class="text-lg">Toning Expert</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">Alyssa Tan</h3>
+              <p class="text-gray-300 mb-2 text-sm">Women's Fitness & Toning Expert</p>
+              <div class="stats flex justify-between text-sm">
+                <span>5+ Years</span>
+                <span>200+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer Card 4 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="3">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer4.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">Rachel Voss</h4>
+                  <p class="text-lg">Fat Loss Coach</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">Rachel Voss</h3>
+              <p class="text-gray-300 mb-2 text-sm">Dumbbell Training & Fat Loss Coach</p>
+              <div class="stats flex justify-between text-sm">
+                <span>4+ Years</span>
+                <span>240+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer Card 5 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="4">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer5.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">Nina Park</h4>
+                  <p class="text-lg">Lifting & Technique Coach</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">Nina Park</h3>
+              <p class="text-gray-300 mb-2 text-sm">Olympic Lifting & Technique Coach</p>
+              <div class="stats flex justify-between text-sm">
+                <span>6+ Years</span>
+                <span>400+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer Card 6 -->
+        <div class="carousel-card absolute transition-all duration-700 ease-out" data-index="5">
+          <div class="card-content bg-gradient-to-br from-gray-800 to-gray-950 rounded-xl overflow-hidden w-80 h-96">
+            <div class="trainer-image-wrapper relative h-60">
+              <img src="./gym_website/trainer6.jpg" class="w-full h-full object-cover" alt="Trainer">
+              <div class="overlay absolute inset-0 bg-orange-700 opacity-0 hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <h4 class="text-2xl font-oswald font-bold">David Knox</h4>
+                  <p class="text-lg">Strength & Muscle Building Coach</p>
+                  <div class="social-links flex gap-3 mt-3 justify-center">
+                    <i class="fab fa-instagram text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-facebook text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                    <i class="fab fa-twitter text-lg hover:text-red-300 cursor-pointer transition-colors duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-white">
+              <h3 class="text-xl font-bold mb-1 font-oswald">David Knox</h3>
+              <p class="text-gray-300 mb-2 text-sm">Strength & Muscle Building Coach</p>
+              <div class="stats flex justify-between text-sm">
+                <span>5+ Years</span>
+                <span>280+ Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Indicator Dots -->
+    <div class="flex justify-center mt-8 space-x-2" id="indicatorDots">
+      <div class="w-3 h-3 rounded-full bg-orange-600 transition-all duration-300" data-slide="0"></div>
+      <div class="w-3 h-3 rounded-full bg-gray-400 transition-all duration-300" data-slide="1"></div>
+      <div class="w-3 h-3 rounded-full bg-gray-400 transition-all duration-300" data-slide="2"></div>
+      <div class="w-3 h-3 rounded-full bg-gray-400 transition-all duration-300" data-slide="3"></div>
+      <div class="w-3 h-3 rounded-full bg-gray-400 transition-all duration-300" data-slide="4"></div>
+      <div class="w-3 h-3 rounded-full bg-gray-400 transition-all duration-300" data-slide="5"></div>
+    </div>
+
+    <!-- Swipe Instruction -->
+    <div class="text-center mt-4">
+      <p class="text-gray-400 text-sm font-poppins">← Swipe to explore trainers →</p>
+    </div>
+  </div>
+</div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
