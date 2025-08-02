@@ -1,3 +1,4 @@
+
 const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.getElementById('nav-links');
 
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     video.addEventListener("mousemove",function(dets){
       gsap.to(circle,{
         left:dets.x,
-        top:dets.y+30
+        top:dets.y
       })
     })
 

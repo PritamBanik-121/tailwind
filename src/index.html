@@ -89,7 +89,7 @@
 
     .headingservice {
       text-transform: uppercase;
-      background-image: linear-gradient(269deg, #FF0202FF, #791010FF,rgb(169, 7, 7),#FF0202FF, #791010FF,#000409FF);
+      background-image: linear-gradient(269deg, #FF0202FF, #FF0202FF,rgb(169, 7, 7),#FF0202FF, #791010FF,rgb(68, 9, 9));
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -112,6 +112,16 @@
     li > a:hover{
       color: #FF0202FF;
     }
+
+    .headingtrainer {
+      text-transform: uppercase;
+      background-clip: text;
+      background-image: linear-gradient(269deg, #FF0202FF, #FF0202FF,rgb(169, 7, 7),#FF0202FF, #791010FF,rgb(68, 9, 9));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300% 300%;
+      animation: anime 8s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -126,12 +136,12 @@
         <i class="fa thin fa-bars text-2xl text-amber-50" id="menu-btn"></i>
       </div>
     </div>
-    <ul class="bg-black p-[10px] mt-2.5 w-full flex items-center flex-col justify-center gap-[20px] sm:gap-[30px]
+    <ul class="bg-black p-[10px]  w-full flex items-center flex-col justify-center gap-[20px] sm:gap-[30px]
         sm:flex-row sm:static absolute left-0 sm:top-0 sm:w-auto
         transition-all duration-300 top-[50px]
         hidden sm:flex sm:pl-[30px] sm:pr-[80px] " id="nav-links">
       <li>
-        <a href="#" class="group text-white transition text-[20px] duration-300">Home<span
+        <a href="./diet.html" class="group text-white whitespace-nowrap transition text-[20px] duration-300">Diet Planner<span
             class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
         </a><span class=""></span>
       </li>
@@ -202,9 +212,11 @@
     </div>
   </div>
   <!--Services-->
-  <div class="services bg-black flex flex-col items-center justify-center" id="services">
-    <div class="headingservice sm:text-5xl text-3xl text-white font-oswald sm:mb-[80px] mb-[0px]">Services We Provide</div>
-    <div class="serv-cont flex gap-[50px] items-center justify-center sm:p-[20px] p-[50px] flex-wrap sm:flex-row flex-col">
+  <div class="services bg-black flex flex-col items-center justify-center relative" id="services">
+    <div class="headingservice sm:text-6xl text-3xl text-white font-oswald sm:mb-[80px] mb-[0px]">Services We Provide</div>
+    <dotlottie-wc src="https://lottie.host/c43a2994-8b24-4745-b6b8-f26d17627c08/Vq0Edt9EiH.lottie" style="width: 300px; height: 300px" speed="1" autoplay loop class=" absolute bottom-0 left-0 sm:flex hidden "></dotlottie-wc>
+
+    <div class="serv-cont flex gap-[50px] items-center justify-center sm:p-[20px] p-[50px] mb-10 flex-wrap sm:flex-row flex-col">
       <div class="box sm:h-[30%] sm:text-3xl text-2xl font-semibold text-center sm:w-[30%] w-[full] bg-[#eadecb] rounded-xl">
         <a href="card.html?id=0" >
          <img src="./gym_website/image1.jpg" class="h-[100%] w-[100%] object-cover rounded-t-xl shadow-sm" alt="" >  Bench Press
@@ -232,15 +244,22 @@
   </div>
   <!--Marquee-->
   <div class="marquee-container">
-    <div class="marquee">
-      🔥 Get 20% Off on All Yearly Memberships – Offer Ends Soon! 🔥 | 🧘 Yoga Every Sunday 7 AM | 🥊 Boxing Bootcamp –
+    <div class="marquee text-2xl w-full font-poppins">
+      🔥 Get 20% Off on All Yearly Memberships – Offer Ends Soon! 🔥 | 🧘 Yoga Every Sunday 7 AM | Discounts on personal trainers | 🥊 Boxing Bootcamp –
       Saturday 5 PM
     </div>
+  </div>
+
+  <!--Trainers Sections-->
+  <div class="trainers bg-black flex flex-col items-center justify-center" id="trainers">
+<div class="headingtrainer sm:text-6xl text-3xl text-white font-oswald sm:mb-[80px] mb-[0px]">Meet Our Trainers</div>
+
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="./script.js"></script>
-
+<script  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+  type="module"></script>
 </html>

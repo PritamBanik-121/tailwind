@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Diet Planner</title>
+    <link rel="stylesheet" href="/src/diet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="./output.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="bg-black fixed h-[50px] sm:h-[70px] flex items-center w-screen z-10">
+    <div class="wrapper flex items-center justify-between w-full">
+      <div class="logo pt-[10px] pl-[10px] sm:p-[20px]">
+        <a href="./index.html" class="text-white text-2xl">CORE</a>
+        <a href="./index.html" class="text-orange-700 text-2xl">FORGE</a>
+      </div>
+      <div class="icon sm:hidden pr-[30px] pt-[10px]">
+        <i class="fa thin fa-bars text-2xl text-amber-50" id="menu-btn"></i>
+      </div>
+    </div>
+    <ul class="bg-black p-[10px] mt-2.5 w-full flex items-center flex-col justify-center gap-[20px] sm:gap-[30px]
+        sm:flex-row sm:static absolute left-0 sm:top-0 sm:w-auto
+        transition-all duration-300 top-[50px]
+        hidden sm:flex sm:pl-[30px] sm:pr-[80px] " id="nav-links">
+      <li>
+        <a href="./index.html" class="group text-white transition text-[20px] duration-300">Home<span
+            class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
+        </a><span class=""></span>
+      </li>
+      <li>
+        <a href="./index.html#about" class="group text-white transition text-[20px] duration-300">About
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
+        </a>
+        <span class=""></span>
+      </li>
+      <li>
+        <a href="./index.html#services" class="group text-white transition text-[20px] duration-300">Services
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
+        </a>
+        <span class=""></span>
+      </li>
+      <li>
+        <a href="./index.html#trainer" class="group text-white transition text-[20px] duration-300">Trainers
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
+        </a>
+        <span class=""></span>
+      </li>
+      <li>
+        <a href="#" class="group text-white text-[20px] transition duration-300">Contact
+          <span class="block w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-orange-700 "></span>
+        </a>
+        <span class=""></span>
+      </li>
+    </ul>
+
+  </nav>
+    <div class="container">
+
+        <header class="header">
+            <h1><i class="fas fa-utensils"></i> Smart Diet Planner</h1>
+            <p>Create your personalized healthy meal plan</p>
+        </header>
+
+        <div class="form-container" id="formSection">
+            <form id="dietForm" class="diet-form">
+                <div class="form-group">
+                    <label for="weight">
+                        <i class="fas fa-weight"></i> Weight (kg)
+                    </label>
+                    <input type="number" id="weight" name="weight" required min="30" max="300" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">
+                        <i class="fas fa-ruler-vertical"></i> Height (cm)
+                    </label>
+                    <input type="number" id="height" name="height" required min="100" max="250">
+                </div>
+
+                <div class="form-group">
+                    <label for="age">
+                        <i class="fas fa-calendar-alt"></i> Age (years)
+                    </label>
+                    <input type="number" id="age" name="age" required min="15" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-venus-mars"></i> Gender
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" required>
+                            <span class="radio-custom"></span>
+                            Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female" required>
+                            <span class="radio-custom"></span>
+                            Female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">
+                        <i class="fas fa-running"></i> Activity Level
+                    </label>
+                    <select id="activity" name="activity" required>
+                        <option value="">Select activity level</option>
+                        <option value="1.2">Sedentary (little/no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-target"></i> Goal
+                    </label>
+                    <div class="goal-buttons">
+                        <button type="button" class="goal-btn" data-goal="lose">
+                            <i class="fas fa-arrow-down"></i>
+                            Lose Weight
+                        </button>
+                        <button type="button" class="goal-btn" data-goal="maintain">
+                            <i class="fas fa-balance-scale"></i>
+                            Maintain Weight
+                        </button>
+                        <button type="button" class="goal-btn" data-goal="gain">
+                            <i class="fas fa-arrow-up"></i>
+                            Gain Weight
+                        </button>
+                    </div>
+                    <input type="hidden" id="goal" name="goal" required>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-magic"></i>
+                    Generate My Diet Plan
+                </button>
+            </form>
+        </div>
+
+        <div class="results-container" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2><i class="fas fa-chart-pie"></i> Your Personalized Diet Plan</h2>
+                <button class="back-btn" onclick="showForm()">
+                    <i class="fas fa-arrow-left"></i> Back to Form
+                </button>
+            </div>
+
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+
+            <div class="meal-plan" id="mealPlan">
+                <!-- Meal plan will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/src/diet.js"></script>
+</body>
+
+</html>
